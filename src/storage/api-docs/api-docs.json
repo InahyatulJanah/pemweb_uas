@@ -1,0 +1,501 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My API",
+        "description": "This Is API Documentation for My Application",
+        "termsOfService": "http://localhost/terms",
+        "contact": {
+            "name": "API Support",
+            "email": "support@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost",
+            "description": "Local API Server"
+        }
+    ],
+    "paths": {
+        "/api/absensi": {
+            "get": {
+                "tags": [
+                    "Absensi"
+                ],
+                "summary": "Ambil semua data absensi",
+                "operationId": "5b19625a5f0d82fecfee3104447ac8b8",
+                "responses": {
+                    "200": {
+                        "description": "List absensi",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Absensi"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Absensi"
+                ],
+                "summary": "Tambah data absensi",
+                "operationId": "2e14460020ca3a62a1fb85def420520e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Absensi"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Absensi ditambahkan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Absensi"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/absensi/{id}": {
+            "get": {
+                "tags": [
+                    "Absensi"
+                ],
+                "summary": "Ambil detail absensi",
+                "operationId": "2ec875c7a583d79dca70e29cabfbd3f5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Data ditemukan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Absensi"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Data tidak ditemukan"
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Absensi"
+                ],
+                "summary": "Update data absensi",
+                "operationId": "8757f14f1ac6c4e998cd34e0d14515fd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Absensi"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Data diperbarui",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Absensi"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Absensi"
+                ],
+                "summary": "Hapus data absensi",
+                "operationId": "b9f6441b793db37e33a3d465823fd21e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Data dihapus",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "message": "Berhasil dihapus"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/siswa": {
+            "get": {
+                "tags": [
+                    "Siswa"
+                ],
+                "summary": "Ambil semua data siswa",
+                "operationId": "795958128551e70f93ae7a3dc22a602d",
+                "responses": {
+                    "200": {
+                        "description": "Berhasil mengambil data siswa",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Siswa"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Siswa"
+                ],
+                "summary": "Tambah data siswa baru",
+                "operationId": "f42879ec6fec379f004344fde6e9dd87",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Siswa"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Siswa berhasil ditambahkan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Siswa"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/siswa/{id}": {
+            "get": {
+                "tags": [
+                    "Siswa"
+                ],
+                "summary": "Lihat detail siswa",
+                "operationId": "5ccd408b49eeb5b517afda071bb85dc6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detail siswa ditemukan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Siswa"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Siswa tidak ditemukan"
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Siswa"
+                ],
+                "summary": "Perbarui data siswa",
+                "operationId": "0d162621cb99f216f060a7693b2d06b9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Siswa"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Siswa berhasil diperbarui",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Siswa"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Siswa"
+                ],
+                "summary": "Hapus siswa",
+                "operationId": "74c3e9d0efd69a2afcdbd772f96df51d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Siswa berhasil dihapus",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "message": "Siswa berhasil dihapus"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Siswa tidak ditemukan"
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Absensi": {
+                "title": "Absensi",
+                "description": "Data kehadiran siswa",
+                "required": [
+                    "id",
+                    "siswa_id",
+                    "tanggal",
+                    "status"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "siswa_id": {
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "tanggal": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-07-21"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "hadir",
+                            "izin",
+                            "sakit",
+                            "alpa"
+                        ],
+                        "example": "hadir"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "Siswa": {
+                "title": "Siswa",
+                "required": [
+                    "id",
+                    "nama",
+                    "nis",
+                    "kelas"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "nama": {
+                        "type": "string",
+                        "example": "Budi Santoso"
+                    },
+                    "nis": {
+                        "type": "string",
+                        "example": "12345678"
+                    },
+                    "kelas": {
+                        "type": "string",
+                        "example": "XII IPA 3"
+                    },
+                    "jurusan": {
+                        "type": "string",
+                        "example": "IPA",
+                        "nullable": true
+                    },
+                    "alamat": {
+                        "type": "string",
+                        "example": "Jl. Merdeka No. 1",
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "name": "X-API-KEY",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Absensi",
+            "description": "API untuk manajemen data absensi siswa"
+        },
+        {
+            "name": "Siswa",
+            "description": "API untuk manajemen data siswa"
+        }
+    ]
+}
